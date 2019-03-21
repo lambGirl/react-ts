@@ -6,6 +6,7 @@ export interface Iprops {
 }
 
 function Hello({ name, enthusiasmLevel = 1 }: Iprops) {
+
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }
