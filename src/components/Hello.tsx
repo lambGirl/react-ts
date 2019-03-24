@@ -35,7 +35,12 @@ function alertName(): void {
     alert('My name is Tom');
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Iprops) {
+const preview = (e:any): void =>{
+    console.log("11111111111111111",e);
+}
+
+
+function Hello({ name, enthusiasmLevel = 1,  }: Iprops) {
 
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
@@ -76,15 +81,25 @@ function Hello({ name, enthusiasmLevel = 1 }: Iprops) {
     // const num1: number = undefined
 
     // 这样也要报错
-    //let u1: undefined;
+    //  let u1: undefined;
 
-    //let num1: number = u;
+    //  let num1: number = u;
 
     return (
         <div className="hello">
         <div className="greeting">
             Hello {name + getExclamationMarks(enthusiasmLevel)}
-    </div>
+        </div>
+        <form action="#" method="POST">
+            <legend>
+                图片上传
+            </legend>
+             <fieldset>
+                 <input type="file" name="pic1" id="pic1" onChange={(e)=>{preview(e)}} multiple={true}
+                        accept="image/x-png, image/jpg, image/jpeg, image/gif"/>
+             </fieldset>
+             <input type="button" value="上传"/>
+         </form>
     </div>
 );
 }
