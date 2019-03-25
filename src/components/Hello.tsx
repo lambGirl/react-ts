@@ -35,73 +35,74 @@ function alertName(): void {
     alert('My name is Tom');
 }
 
-const preview = (e:any): void =>{
-    console.log("11111111111111111",e);
-}
+
+class Hello extends React.Component{
+
+    constructor(props:any){
+        super(props);
+
+        //  声明boolean类型
+        const isBool: boolean = false;
+        //  let isBool:boolean =  new Boolean(1);   //会编译失败, 因为Boolean是对象
+        //  使用 number 定义数值类型：
+        const decLiteral: number = 6;
+        const hexLiteral: number = 0xf00d;
+        // ES6 中的二进制表示法
+        const binaryLiteral: number = 0b1010;
+        // ES6 中的八进制表示法
+        const octalLiteral: number = 0o744;
+        const notANumber: number = NaN; //  正常编译
+        const infinityNumber: number = Infinity;    //  正常编译
 
 
-function Hello({ name, enthusiasmLevel = 1,  }: Iprops) {
+        //  字符串
 
-    if (enthusiasmLevel <= 0) {
-        throw new Error('You could be a little more enthusiastic. :D');
-    }
-    //  声明boolean类型
-    const isBool: boolean = false;
-    //  let isBool:boolean =  new Boolean(1);   //会编译失败, 因为Boolean是对象
-    //  使用 number 定义数值类型：
-    const decLiteral: number = 6;
-    const hexLiteral: number = 0xf00d;
-    // ES6 中的二进制表示法
-    const binaryLiteral: number = 0b1010;
-    // ES6 中的八进制表示法
-    const octalLiteral: number = 0o744;
-    const notANumber: number = NaN; //  正常编译
-    const infinityNumber: number = Infinity;    //  正常编译
+        const myName: string = 'Tom';
+        const myAge: number = 25;
 
-
-    //  字符串
-
-    const myName: string = 'Tom';
-    const myAge: number = 25;
-
-    // 模板字符串
-    const sentence: string = `Hello, my name is ${myName}.
+        // 模板字符串
+        const sentence: string = `Hello, my name is ${myName}.
         I'll be ${myAge + 1} years old next month.`;
 
-    // 在 TypeScript 中，可以使用 null 和 undefined 来定义这两个原始数据类型：
+        // 在 TypeScript 中，可以使用 null 和 undefined 来定义这两个原始数据类型：
 
-    const u: undefined = undefined;
-    const n: null = null;
+        const u: undefined = undefined;
+        const n: null = null;
 
-    /**
-     * 与 void 的区别是，undefined 和 null 是所有类型的子类型。
-     * 也就是说 undefined 类型的变量，可以赋值给 number 类型的变量
-     */
-    // 这里报错了, undefined
-    // const num1: number = undefined
+        /**
+         * 与 void 的区别是，undefined 和 null 是所有类型的子类型。
+         * 也就是说 undefined 类型的变量，可以赋值给 number 类型的变量
+         */
+        // 这里报错了, undefined
+        // const num1: number = undefined
 
-    // 这样也要报错
-    //  let u1: undefined;
+        // 这样也要报错
+        //  let u1: undefined;
 
-    //  let num1: number = u;
+        //  let num1: number = u;
 
-    return (
-        <div className="hello">
-        <div className="greeting">
-            Hello {name + getExclamationMarks(enthusiasmLevel)}
-        </div>
-        <form action="#" method="POST">
-            <legend>
-                图片上传
-            </legend>
-             <fieldset>
-                 <input type="file" name="pic1" id="pic1" onChange={(e)=>{preview(e)}} multiple={true}
-                        accept="image/x-png, image/jpg, image/jpeg, image/gif"/>
-             </fieldset>
-             <input type="button" value="上传"/>
-         </form>
-    </div>
-);
+
+    }
+
+    public preview(e:any) {
+        e.preventDefault();
+
+    }
+
+    public render() {
+        return (
+            <div className="hello">
+                <div className="greeting">
+                    Hello
+                </div>
+                <form method='post' >
+                    <a>
+                        <span>修改头像</span>
+                        <input type="file" id="fileUp" accept="image/png,image/jpeg" />
+                    </a>
+                </form>
+            </div>)
+    }
 }
 
 export default Hello;
